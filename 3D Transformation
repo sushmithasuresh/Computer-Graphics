@@ -1,0 +1,46 @@
+#include <GL/glut.h>  
+void initGL()
+{
+	glClearColor(1.0,1.0,1.0,0.0);
+}
+
+void display() 
+{
+  glClear(GL_COLOR_BUFFER_BIT); // Clear color and depth buffers
+  
+    glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+
+	glColor3f(1.0,0.0,0.0);
+    glutWireTeapot(0.1);
+      
+    glTranslatef(0.3,0.0,0.0);
+       glColor3f(0.0,0.0,1.0);
+		 glutWireTeapot(0.1);
+
+	glTranslatef(0.0,0.3,0.0);
+	   glScalef(1.5,1.5,0.0);
+		glColor3f(0.0,1.0,1.0);
+			glutWireTeapot(0.1);
+
+	
+	glTranslatef(0.0,0.3,0.0);
+	    glRotatef(45,0.0,0.0,1.0);
+		glColor3f(0.0,1.0,1.0);
+			glutWireTeapot(0.1);
+
+    glFlush();
+       
+}   
+
+void main(int argc, char** argv) 
+{
+   glutInit(&argc, argv);            
+   glutInitDisplayMode(GLUT_SINGLE); 
+   glutInitWindowSize(640,480);  
+   glutInitWindowPosition(0, 0); 
+   glutCreateWindow("3D Transformation - Using BuiltIn Function");      
+   glutDisplayFunc(display);
+   initGL(); 
+   glutMainLoop();                 
+}
